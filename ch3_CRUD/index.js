@@ -35,7 +35,7 @@ const writeFile = (data) => {
 };
 
 //! ------------- Controller -------------
-const getRoot = (req, res, next) => {
+const defaultRoute = (req, res, next) => {
 	res.send('Welcome tuh API akuuuuh');
 };
 
@@ -156,27 +156,16 @@ const deleteData = (req, res) => {
 };
 
 //! ------------- routes -------------
-app.get('/', getRoot);
-
-//TODO: get all data
-app.get('/api/v1/customers', getAllData);
-
-//TODO: get data by ID
-app.get('/api/v1/customers/:id', getDataById);
-
-//TODO: post data
-app.post('/api/v1/customers', createData);
+app.get('/', defaultRoute);
 
 //? PUT / PATCH ?
 //* PUT
 // update semua data
 //* PATCH
 // update data yang diperlukan
-//TODO: patch data
-app.patch('/api/v1/customers/:id', patchData);
 
-//TODO: delete data
-app.delete('/api/v1/customers/:id', deleteData);
+app.route('/api/v1/customers').get(getAllData).post(createData);
+app.route('/api/v1/customers/:id').get(getDataById).patch(patchData).delete(deleteData);
 
 app.listen(PORT, () => {
 	console.log(`Server running on http://localhost:${PORT}`);
