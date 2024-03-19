@@ -1,0 +1,24 @@
+<%- include('layouts/html_header.ejs') %>
+
+<header class="main-header"><%- include('components/navbar.ejs') %></header>
+
+<main>
+	<form
+		class="product-form"
+		action="/admin/add-product"
+		method="POST"
+	>
+		<div class="form-control">
+			<label for="title">title</label>
+			<input
+				type="text"
+				name="title"
+				id="title"
+			/>
+		</div>
+
+		<button type="submit">Add Product</button>
+	</form>
+</main>
+
+<%- include('layouts/html_footer.ejs') %>
