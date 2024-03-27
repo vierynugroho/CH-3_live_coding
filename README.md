@@ -2,10 +2,6 @@
   Chapter 3 - Live Coding All Day
 </h1>
 
-# Database Diagram
-
-![ERD]('./ERD.png')
-
 # Data Diri
 
 |                  |                          |
